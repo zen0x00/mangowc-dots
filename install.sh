@@ -28,7 +28,6 @@ while true; do
 	echo "Passwords do not match. Try again."
 done
 
-umount /mnt
 # Create GPT partitions: 1 = EFI, 2 = root (btrfs)
 parted -s "$DISK" mklabel gpt \
 	mkpart primary fat32 1MiB 512MiB \
@@ -57,7 +56,7 @@ btrfs subvolume create /mnt/@snapshots
 btrfs subvolume create /mnt/@var
 btrfs subvolume create /mnt/@log
 
-umount /mnt
+umount -l /mnt 2>/dev/null || true
 
 mount -o subvol=@root,compress=zstd,noatime LABEL=archpool /mnt
 mkdir -p /mnt/{home,.snapshots,var,var/log,boot}
