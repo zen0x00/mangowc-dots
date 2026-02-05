@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --------------------------------------------------
+# Minimal Static Wallpaper Picker (Hyprland + awww)
+# --------------------------------------------------
+
+# CONFIG
+WALLDIR="$HOME/Pictures/Wallpapers"
+CACHE_DIR="$HOME/.cache/wallpaper_thumbs"
+ROFI_THEME="$HOME/.config/rofi/wallpapers.rasi"
+
+# --------------------------------------------------
+# Dependency check (keep it strict & fast)
+# --------------------------------------------------
+for cmd in awww rofi magick; do
+  command -v "$cmd" >/dev/null || {
+    notify-send "Wallpaper Picker" "Missing dependency: $cmd"
+    exit 1
+  }
+done
+
+mkdir -p "$CACHE_DIR"
+
+# --------------------------------------------------
+# Build rofi menu with cached thumbnails
+# --------------------------------------------------
+menu() {
+  find -L "$WALLDIR" -type f \( \
+    -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \
+  \) | sort | while read -r img; do
+    name="$(basename "$img")"
+    thumb="$CACHE_DIR/$name.png"
+
+    # Generate thumbnail once
+    if [[ ! -f "$thumb" ]]; then
+      magick "$img" \
+      -resize 440x225^ \
+      -gravity center \
+      -extent 440x225 \
+      "$thumb"
+    fi
+
+    printf "%s\x00icon\x1f%s\n" "$name" "$thumb"
+  done
+}
+
+# --------------------------------------------------
+# Rofi picker
+# --------------------------------------------------
+choice="$(menu | rofi -dmenu -i -config "$ROFI_THEME")"
+[[ -z "$choice" ]] && exit 0
+
+# Resolve selected wallpaper (symlink-safe)
+selected="$(find -L "$WALLDIR" -type f -iname "$choice" -print -quit)"
+
+if [[ -z "$selected" ]]; then
+  notify-send "Wallpaper Picker" "File not found"
+  exit 1
+fi
+
+# --------------------------------------------------
+# Apply wallpaper
+# --------------------------------------------------
+awww img "$selected" \
+  --transition-type grow \
+  --transition-fps 60 \
+  --transition-duration 1
+
+  ln -sf "$selected" "$HOME/.current_wallpaper"

@@ -1,0 +1,158 @@
+@import "colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-weight: 600;
+  font-size: 15px;
+  color: @fg;
+}
+
+#waybar {
+  background-color: alpha(@bg, 0.85);
+  border-bottom: 2px solid alpha(@fg_muted, 0.6);
+  transition: background-color 0.4s ease;
+}
+
+#waybar button:hover {
+  background-color: alpha(@fg, 0.04);
+  border-radius: 8px;
+}
+
+.tray-group-item {
+  padding: 0 6px;
+  color: @fg_dim;
+}
+
+.tray-group-item:hover {
+  color: @fg;
+}
+
+#tray {
+  padding: 0 6px;
+  background: transparent;
+}
+
+.modules-left {
+  margin-left: 16px;
+}
+
+.modules-right {
+  margin-right: 18px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 2px;
+  min-width: 9px;
+  color: @fg_dim;
+  transition: color 0.25s ease;
+}
+
+#workspaces button.active {
+  color: @nord_blue;
+}
+
+#workspaces button:hover {
+  color: @blue;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#workspaces button.empty {
+  opacity: 0.45;
+}
+
+#mpris {
+  color: @purple;
+}
+
+#mpris.paused {
+  color: @fg_dim;
+}
+
+#custom-cava {
+  color: @purple;
+  opacity: 0.75;
+}
+
+#window {
+  color: @fg;
+}
+
+#clock {
+  padding-left: 6px;
+  color: @yellow;
+}
+
+#custom-seperator {
+  margin: 0 -4px;
+  color: @fg_muted;
+  opacity: 0.3;
+}
+
+#custom-expand-icon {
+  padding: 0 6px;
+  color: @nord_blue;
+}
+
+#custom-brightness {
+  padding: 0 6px;
+  color: @yellow;
+}
+
+#custom-nightlight {
+  padding: 0 6px;
+  color: @orange;
+}
+
+#power-profiles-daemon {
+  padding: 0 6px;
+  color: @green;
+}
+
+#power-profiles-daemon.performance {
+  color: @red;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @teal;
+}
+
+#network {
+  padding: 0 6px;
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#bluetooth {
+  padding: 0 6px;
+  color: @teal;
+}
+
+#bluetooth.disabled {
+  color: @fg_dim;
+}
+
+#custom-volume {
+  padding: 0 6px;
+  color: @orange;
+}
+
+#custom-volume.muted {
+  color: @fg_dim;
+}
+
+#custom-swaync {
+  padding: 0 6px;
+  color: @nord_blue;
+}
+
+#custom-swaync.dnd {
+  color: @purple;
+}
