@@ -23,6 +23,7 @@
     "battery",
     "clock"
   ],
+
   "ext/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -36,25 +37,17 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "10": "0",
       "active": "󱓻"
-    },
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
     },
     "ignore-hidden": true,
     "on-click": "activate",
     "sort-by-id": true
   },
   "dwl/tags": {
-      "num-tags":9
+      "num-tags":5
   },
   "dwl/window": {
-      "format": "[{layout}]{title}"
+      "format": "{title}"
   },
   "clock": {
     "tooltip": true,

@@ -18,13 +18,13 @@
 }
 {
     "label" : "hibernate",
-    "action" : "swaylock -f && systemctl hibernate",
+    "action" : "sleep 2 && swaylock -f && systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "sleep 2 && swaylock",
     "text" : "Lock",
     "keybind" : "l"
 }

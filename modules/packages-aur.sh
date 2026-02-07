@@ -45,6 +45,7 @@ install_aur_packages() {
         sway-audio-idle-inhibit-git
         swaybg
         swayidle
+        swaylock
         swaync
         swayosd
         sunset-cursors-git
