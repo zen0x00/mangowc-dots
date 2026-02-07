@@ -102,8 +102,6 @@ run_stow
 # -----------------------------------------------
 # HYPRLAND MONITOR CONFIG
 # -----------------------------------------------
-info "Generating Hyprland monitor configuration..."
-generate_monitors_conf
 
 # -----------------------------------------------
 # LOCAL BIN

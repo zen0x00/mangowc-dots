@@ -59,13 +59,13 @@ install_aur_packages() {
         waybar
         wl-clip-persist
         wl-clipboard
+        wlogout
         wlr-dpms
         wlr-randr
         wlsunset
         wiremix
         xdg-desktop-portal-wlr
         yad
-        yaru-icon-theme
         zen-browser-bin
         zoxide
     )

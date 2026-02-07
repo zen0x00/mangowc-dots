@@ -5,7 +5,10 @@
   "spacing": 10,
   "height": 34,
   "modules-left": [
-      "ext/workspaces"        
+      "custom/logo",
+      "ext/workspaces",   
+      "custom/seperator",
+      "mpris"
   ],
 
   "modules-center": [
@@ -14,7 +17,10 @@
   "modules-right": [
     "group/tray-expander",
     "custom/volume",
+    "custom/power-profiles-daemon",
+    "bluetooth",
     "network",
+    "battery",
     "clock"
   ],
   "ext/workspaces": {
@@ -107,7 +113,7 @@
   },
   "custom/logo": {
     "format": "󰣇",
-    "on-click": "power-menu"
+    "on-click": "wlogout"
   },
   "custom/volume": {
     "format": "",
