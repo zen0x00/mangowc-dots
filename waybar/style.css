@@ -40,29 +40,61 @@
   margin-right: 18px;
 }
 
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 2px;
-  min-width: 9px;
-  color: @fg_dim;
-  transition: color 0.25s ease;
+#tags {
+  border-radius: 4px;
+  background: none;
 }
 
-#workspaces button.active {
+#tags button {
+  color: #6b6b6b;
+  border: none;
+  transition: color 0.3s ease;
+  background: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  padding: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-right: 4px;
+}
+
+#tags button.focused {
+  background-color: @bg;
   color: @nord_blue;
+  margin-top: 5px;
+  margin-bottom: 6px;
+  border-radius: 3px;
 }
 
-#workspaces button:hover {
+#tags button:hover {
   color: @blue;
 }
 
-#workspaces button.urgent {
+#tags button {
+  color: #6b6b6b;
+}
+
+#tags button.occupied {
+  color: @fg;
+}
+
+#tags button.focused {
+  background-color: @bg;
+  color: @nord_blue;
+  border-radius: 3px;
+}
+
+#tags button.urgent {
   color: @red;
 }
 
-#workspaces button.empty {
-  opacity: 0.45;
+#tags button.overview {
+  color: #ddca9e;
+}
+
+#tags button:not(.occupied):not(.focused) {
+  color: blue;
+  background-color: transparent;
 }
 
 #mpris {
