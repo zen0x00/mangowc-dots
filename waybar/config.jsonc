@@ -21,7 +21,8 @@
     "bluetooth",
     "network",
     "battery",
-    "clock"
+    "clock",
+    "custom/swaync"
   ],
 
   "ext/workspaces": {
