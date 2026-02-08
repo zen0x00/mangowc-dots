@@ -8,6 +8,9 @@ run_unstow() {
         local target="$CONFIG_DIR/$folder"
         stow --delete --target="$target" "$folder"
     done
+
+    stow --delete --target="$CONFIG_DIR" starship
+    stow --delete --target="$HOME/Pictures" Pictures
 }
 
 run_unstow
